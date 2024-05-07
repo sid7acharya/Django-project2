@@ -1,0 +1,18 @@
+user
+     admin
+     seller
+     buyer
+
+->group ->permission
+
+books
+seller -> create, update, delete
+buyer -> read
+
+filter:
+books category
+publicatins
+published date
+price
+
+book->
