@@ -5,7 +5,7 @@ from django.template.defaultfilters import slugify
 
 class BookCategory(models.Model):
     name=models.CharField(max_length=200,null=False,blank=False)
-    icon=models.ImageField(upload_to='media', blank=False)
+    
     
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateField(auto_now=True)
@@ -14,8 +14,9 @@ class BookCategory(models.Model):
         verbose_name=_("Book Category")
         verbose_name_plural=_("Book Categories")
         
-        def __str__(self) -> str:
-             return self.name
+    def __str__(self) -> str:
+         return self.name
+                
          
          
 class BookSubCategory(models.Model):
@@ -40,7 +41,13 @@ class Author(models.Model):
     
     
 class BookOption(models.Model):
-    can=models.CharField(max_length=100,blank=False,null=False)
+    CHOICES=[
+        ('buy','Buy'),
+        ('rent','Rent'),
+    ]
+    
+
+    can=models.CharField(max_length=100,choices=CHOICES )
 
     def __str__(self) -> str:
         return self.can

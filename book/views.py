@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .serializers import BookSerializer,BookCategorySerializer,BookSUbCategorySerializer,AuthorSerializer,BookOptionSerializer
+from .serializers import BookSerializer, BookCreateSerializer, BookCategorySerializer,BookSUbCategorySerializer,AuthorSerializer,BookOptionSerializer
 from rest_framework.generics import ListAPIView,CreateAPIView,RetrieveAPIView,DestroyAPIView,UpdateAPIView
 from .models import Book,BookCategory,BookSubCategory,Author,BookOption
 
@@ -109,7 +109,7 @@ class BookRetrieveView(RetrieveAPIView):
 
 class BookCreateView(CreateAPIView):
     queryset=Book.objects.all()
-    serializer_class=BookSerializer
+    serializer_class=BookCreateSerializer
 
 class BookUpdateView(UpdateAPIView):
     queryset=Book.objects.all()
