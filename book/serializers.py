@@ -22,6 +22,25 @@ class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
         fields = "__all__"
+        
+class BookSerializer(serializers.ModelSerializer):
+    category=serializers.StringRelatedField()
+    sub_category=serializers.StringRelatedField()
+    author=serializers.StringRelatedField()
+    available_to=serializers.StringRelatedField()
+    seller=serializers.StringRelatedField()
+    
+
+    class Meta:
+        model=Book
+        fields='__all__'
+    
+    
+class BookCreateSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Book
+        fields = "__all__"
 
 
 
@@ -41,8 +60,8 @@ class BookSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-    def get_seller():
-        return User.objects.filter(seller=True)
+    # def get_seller():
+    #     return User.objects.filter(seller=True)
     
 
 class BookCreateSerializer(serializers.ModelSerializer):

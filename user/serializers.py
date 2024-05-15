@@ -13,10 +13,10 @@ class AddressSerializer(serializers.ModelSerializer):
 
         
 class UserCreateSerializer(serializers.ModelSerializer):
-    address=AddressSerializer
+    address=AddressSerializer()
     class Meta:
         model = User
-        fields = ["username","password","email","seller"]
+        fields = ["username","password","email","seller","address"]
 
     def create(self,validated_data):
         address_data=validated_data.pop("address")
